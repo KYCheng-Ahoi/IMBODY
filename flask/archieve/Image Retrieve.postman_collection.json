@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "4fd1a717-ced7-4149-afc3-b3200f2f45c0",
+		"name": "Image Retrieve",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DCM",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "inputs",
+							"type": "file",
+							"src": "/Users/kayung/Desktop/Promotion/Program/elastic-python-ir/infra/flask/archieve/test_img/2.dcm"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8090/dicom",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"dicom"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PNG",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "inputs",
+							"contentType": "",
+							"type": "file",
+							"src": "/Users/kayung/Desktop/Promotion/Program/elastic-python-ir/infra/flask/archieve/test_img/2325.png"
+						},
+						{
+							"key": "s3_key",
+							"value": "/Users/kayung/Desktop/2325.png",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8090/png-predict/form-data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"png-predict",
+						"form-data"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,64 @@
+# https://github.com/ijokarumawak/nifi-elasticsearch/blob/master/docker-compose.yml
+# https://github.com/robcowart/docker_compose_cookbook/blob/master/nifi/docker-compose.yml
+# https://docs.min.io/docs/deploy-minio-on-docker-compose.html
+version: '3'
+services:
+  nifi:
+    ports:
+      - "8080:8080"
+    #image: apache/nifi:latest
+    image: apache/nifi:1.12.0
+    container_name: nifi
+    restart: unless-stopped
+    links:
+      - elasticsearch
+      - minio
+      - flask
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.0
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+      discovery.type: single-node
+    deploy:
+      mode: replicated
+      replicas: 1
+  kibana:
+    image: kibana:7.13.0
+    ports:
+      - "5601:5601"
+    links:
+      - elasticsearch
+  minio:
+    image: quay.io/minio/minio:RELEASE.2022-06-02T02-11-04Z
+    hostname: minio
+    command: server --console-address ":9001" /data/minio/
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio-data:/data
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+  flask:
+    image: flask-app
+    build:
+      context: ./
+      dockerfile: ./flask/Dockerfile
+    ports:
+      - "8090:8090"
+    volumes:
+      - /infra
+    #volumes:
+    #  - ./flask:/app
+    #  - ./training:/app/archieve/training
+
+## By default this config uses default local driver,
+## For custom volumes replace with volume driver configuration.
+volumes:
+  minio-data:
+  elasticsearch-data:
+    driver: local

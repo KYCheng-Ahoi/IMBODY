@@ -1,0 +1,6 @@
+flask==2.1.1
+numpy==1.22.3
+pydicom
+torchvision
+opencv-python
+pandas
