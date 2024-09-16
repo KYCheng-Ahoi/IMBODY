@@ -3,6 +3,7 @@ Simple showcasing for annotating DICOM and non-DICOM images using Deep learning 
 
 ## Run
 ```
+# Download model from Zenodo[https://zenodo.org/records/13767337] and edit the corresponding checkpoint path in `flask/app.py` 
 docker-compose up -d
 ```  
 Our method can be run using the following instance in docker-compose.yml:
