@@ -2,24 +2,19 @@
 Simple showcasing for annotating DICOM and non-DICOM images using Deep learning and Data Lake technologies
 
 ## Run
-- docker-compose up -d
-  
-Our method can be run using the following Python files:
-+ `method.py`: Our method (DC3)
-+ `baseline_nn.py`: Simple deep learning baseline (NN)
-+ `baseline_eq_nn.py`: Supervised deep learning baseline with completion (Eq. NN)
-+ `baseline_opt.py`: Traditional optimizers (Optimizer)
-![plot](./note/nifi.png)
+```
+docker-compose up -d
+```  
+Our method can be run using the following instance in docker-compose.yml:
++ Nifi
+  ![plot](./note/nifi.png)
++ Elasticsearch
++ `flask/app.py`: Our flask server (DICOM Reader & Deep learning model)
 
-## Test
+## Test annotate DICOM or PNG
 1) import flask/archieve/Image Retrieve.postman_collection.json to Postman[https://www.postman.com/downloads/]
+   ![plot](./note/postman.png)
 2) open flask/send-dicom-requests.ipynb and flask/send-png-requests.ipynb with Jupyter notebook
-
-## Dependencies within 
-
-+ Python 3.x
-+ [PyTorch](https://pytorch.org) >= 1.8
-+ numpy/scipy/pandas
 
 ---------
 ## Contact
