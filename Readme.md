@@ -6,6 +6,7 @@ Simple showcasing for annotating DICOM and non-DICOM images using Deep learning 
 docker-compose up -d
 ```  
 Our method can be run using the following instance in docker-compose.yml:
++ S3
 + Nifi
   ![plot](./note/nifi.png)
 + Elasticsearch
