@@ -15,6 +15,7 @@ Our method can be run using the following instance in docker-compose.yml:
 
 ## Test annotate DICOM or PNG
 1) import flask/archieve/Image Retrieve.postman_collection.json to Postman[https://www.postman.com/downloads/]
+As shown in the image below, after sending a REST Request with DICOM image, the corresponding DICOM header, SNOMED prediction and confidence are returned as REST response
    ![plot](./note/postman.png)
 2) open flask/send-dicom-requests.ipynb and flask/send-png-requests.ipynb with Jupyter notebook
 
