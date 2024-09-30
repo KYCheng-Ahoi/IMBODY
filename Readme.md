@@ -57,6 +57,7 @@ doi = {10.3233/SHTI231208}
 
 ## Class details
 - Modalities:
+
 |    Modality    |
 |----------------|
 | angiography    |
@@ -68,6 +69,7 @@ doi = {10.3233/SHTI231208}
 | unknown        |
 
 - IRMA codes:
+
 |        IRMA      |
 |------------------|
 | 1121-110-213-700 |
@@ -189,6 +191,7 @@ doi = {10.3233/SHTI231208}
 | 1124-410-620-625 |
 
 - SNOMED CT body parts:
+
 | SNOMED CT code | Anatomical meaning        | Count | Semantic Types                       |
 |----------------|---------------------------|-------|--------------------------------------|
 | 113197003      | Rib                       | 80    | Body Part, Organ, or Organ Component |
